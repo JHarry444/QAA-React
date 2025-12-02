@@ -1,0 +1,40 @@
+{
+  "trainers": [
+    {
+      "id": "aaa",
+      "name": "Jordan",
+      "age": 31,
+      "specialty": "Java"
+    },
+    {
+      "id": "aab",
+      "name": "Cameron",
+      "age": 32,
+      "specialty": "Web"
+    },
+    {
+      "id": "aac",
+      "name": "Shafeeq",
+      "age": 42,
+      "specialty": "Oracle"
+    },
+    {
+      "id": "5b3f",
+      "name": "pb",
+      "age": 28,
+      "specialty": "devops"
+    },
+    {
+      "id": "dc64",
+      "name": "as",
+      "age": 24,
+      "specialty": "java"
+    },
+    {
+      "id": "7fbd",
+      "name": "dsdf",
+      "age": 123,
+      "specialty": "sdfdsf"
+    }
+  ]
+}
