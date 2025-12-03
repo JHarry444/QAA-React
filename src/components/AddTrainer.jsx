@@ -10,27 +10,27 @@ function AddTrainer() {
     const navigate = useNavigate();
 
     const handleSubmit = e => {
-            e.preventDefault();
+        e.preventDefault();
 
-            fetch("http://localhost:8080/trainers", {
-                method: "POST",
-                body: JSON.stringify({name, age, specialty})
+        fetch("http://localhost:8080/trainers", {
+            method: "POST",
+            body: JSON.stringify({ name, age, specialty })
+        })
+            .then(res => {
+                if (res.status === 201) {
+                    navigate("/external")
+                }
             })
-                .then(res => {
-                    if (res.status === 201) {
-                        navigate("/external")
-                    }
-                })
-                .catch(err => console.error(err));
-        }
+            .catch(err => console.error(err));
+    }
     return (
         <form onSubmit={handleSubmit} id="trainerForm">
             <label htmlFor="trainerName">Name:</label>
-            <input type="text" name="name" id="trainerName" value={name} onChange={e => setName(e.target.value)}/>
+            <input type="text" name="name" id="trainerName" value={name} onChange={e => setName(e.target.value)} />
             <label htmlFor="trainerAge">Age:</label>
-            <input type="text" name="age" id="trainerAge"  value={age} onChange={e => setAge(parseInt(e.target.value))}/>
+            <input type="text" name="age" id="trainerAge" value={age} onChange={e => setAge(parseInt(e.target.value))} />
             <label htmlFor="trainerSpecialty">Specialty:</label>
-            <input type="text" name="specialty" id="trainerSpecialty" value={specialty} onChange={e => setSpecialty(e.target.value)}/>
+            <input type="text" name="specialty" id="trainerSpecialty" value={specialty} onChange={e => setSpecialty(e.target.value)} />
             <button type="submit">ADD</button>
         </form>
     );
