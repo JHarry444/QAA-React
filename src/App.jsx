@@ -11,21 +11,33 @@ import ExternalData from './components/ExternalData';
 import Components from './components/Components';
 import NavBar from './components/NavBar';
 import AddTrainer from './components/AddTrainer';
+import { createContext, useState } from 'react';
+
+export const themeContext = createContext("light");
 
 function App() {
 
-  return (
-    <BrowserRouter>
-      <NavBar />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/components' element={<Components />} />
-        <Route path='/external' element={<ExternalData />} />
-        <Route path='/state' element={<State />} />
-        <Route path='/add' element={<AddTrainer />} />
-      </Routes>
-    </BrowserRouter>
+  const [theme, setTheme] = useState("light");
 
+  return (
+    <div className={theme}>
+
+
+      <BrowserRouter>
+        <themeContext.Provider value={{ theme, setTheme }}>
+
+          <NavBar />
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/components' element={<Components />} />
+            <Route path='/external' element={<ExternalData />} />
+            <Route path='/state' element={<State />} />
+            <Route path='/add' element={<AddTrainer />} />
+          </Routes>
+        </themeContext.Provider>
+
+      </BrowserRouter>
+    </div>
   );
 
 }

@@ -9,11 +9,9 @@ function AddTrainer() {
 
     const navigate = useNavigate();
 
-    return (
-        <form onSubmit={e => {
+    const handleSubmit = e => {
             e.preventDefault();
 
-            debugger
             fetch("http://localhost:8080/trainers", {
                 method: "POST",
                 body: JSON.stringify({name, age, specialty})
@@ -24,7 +22,9 @@ function AddTrainer() {
                     }
                 })
                 .catch(err => console.error(err));
-        }}>
+        }
+    return (
+        <form onSubmit={handleSubmit}>
             <label htmlFor="trainerName">Name:</label>
             <input type="text" name="name" id="trainerName" value={name} onChange={e => setName(e.target.value)}/>
             <label htmlFor="trainerAge">Age:</label>

@@ -11,7 +11,6 @@ function GetTrainers() {
             .then(res => res.json())
             .then(json => {
                 setTrainers(json);
-                debugger
             })
             .catch(err => console.error(err));
     }, [filter]);
@@ -24,9 +23,11 @@ function GetTrainers() {
                 trainers.map(trainer => (
                     <Trainer
                         key={trainer.id}
+                        id={trainer.id}
                         name={trainer.name}
                         age={trainer.age}
                         specialty={trainer.specialty}
+                        setTrainers={setTrainers}
                     />))
             }
         </>
