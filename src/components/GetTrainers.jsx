@@ -13,23 +13,25 @@ function GetTrainers() {
                 setTrainers(json);
             })
             .catch(err => console.error(err));
-    }, [filter]);
-
+    }, []);
+    // dependency array - what can trigger the function
     return (
 
         <>
-        <input type="text" placeholder="name..." value={filter} onChange={e => setFilter(e.target.value)}/>
-            {
-                trainers.map(trainer => (
-                    <Trainer
-                        key={trainer.id}
-                        id={trainer.id}
-                        name={trainer.name}
-                        age={trainer.age}
-                        specialty={trainer.specialty}
-                        setTrainers={setTrainers}
-                    />))
-            }
+            <input type="text" placeholder="name..." value={filter} onChange={e => setFilter(e.target.value)} />
+            <div className="trainerContainer">
+                {
+                    trainers.map(trainer => (
+                        <Trainer
+                            key={trainer.id}
+                            id={trainer.id}
+                            name={trainer.name}
+                            age={trainer.age}
+                            specialty={trainer.specialty}
+                            setTrainers={setTrainers}
+                        />))
+                }
+            </div>
         </>
     );
 }

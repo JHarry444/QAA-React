@@ -23,13 +23,13 @@ function Trainer({ id, name, age, specialty, setTrainers }) {
             .catch(err => console.error(err));
     }
     return (
-        <>
+        <div>
             <p>Name: {name}</p>
             <p>Age: {age}</p>
             <p>Specialty: {specialty}</p>
             {setTrainers && <button className={theme} onClick={handleClick}>DEL</button>}
             
-        </>
+        </div>
     );
 
 }

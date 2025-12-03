@@ -24,7 +24,7 @@ function AddTrainer() {
                 .catch(err => console.error(err));
         }
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} id="trainerForm">
             <label htmlFor="trainerName">Name:</label>
             <input type="text" name="name" id="trainerName" value={name} onChange={e => setName(e.target.value)}/>
             <label htmlFor="trainerAge">Age:</label>
